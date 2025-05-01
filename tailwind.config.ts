@@ -1,3 +1,4 @@
+// tailwind.config.ts
 import svgToDataUri from "mini-svg-data-uri";
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
@@ -13,7 +14,6 @@ const config: Config = {
     "./src/**/*.{ts,tsx}",
     "./data/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -35,9 +35,7 @@ const config: Config = {
           100: "#BEC1DD",
           200: "#C1C2D3",
         },
-        blue: {
-          100: "#E4ECFF",
-        },
+        blue: { 100: "#E4ECFF" },
         purple: "#CBACF9",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -94,7 +92,7 @@ const config: Config = {
           },
           "100%": {
             opacity: "1",
-            transform: "translate(-50%,-40%) scale(1)",
+            transform: "translate(-50%, -40%) scale(1)",
           },
         },
         shimmer: {
@@ -106,37 +104,21 @@ const config: Config = {
           },
         },
         moveHorizontal: {
-          "0%": {
+          "0%, 100%": {
             transform: "translateX(-50%) translateY(-10%)",
           },
           "50%": {
             transform: "translateX(50%) translateY(10%)",
           },
-          "100%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
         },
         moveInCircle: {
-          "0%": {
-            transform: "rotate(0deg)",
-          },
-          "50%": {
-            transform: "rotate(180deg)",
-          },
-          "100%": {
-            transform: "rotate(360deg)",
-          },
+          "0%": { transform: "rotate(0deg)" },
+          "50%": { transform: "rotate(180deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
         moveVertical: {
-          "0%": {
-            transform: "translateY(-50%)",
-          },
-          "50%": {
-            transform: "translateY(50%)",
-          },
-          "100%": {
-            transform: "translateY(-50%)",
-          },
+          "0%, 100%": { transform: "translateY(-50%)" },
+          "50%": { transform: "translateY(50%)" },
         },
         scroll: {
           to: {
@@ -154,30 +136,53 @@ const config: Config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      backgroundColor: {
+        background: "hsl(var(--background))",
+        card: "hsl(var(--card))",
+        popover: "hsl(var(--popover))",
+        primary: "hsl(var(--primary))",
+        secondary: "hsl(var(--secondary))",
+        muted: "hsl(var(--muted))",
+        accent: "hsl(var(--accent))",
+        destructive: "hsl(var(--destructive))",
+      },
+      textColor: {
+        foreground: "hsl(var(--foreground))",
+        primary: "hsl(var(--primary-foreground))",
+        secondary: "hsl(var(--secondary-foreground))",
+        muted: "hsl(var(--muted-foreground))",
+        accent: "hsl(var(--accent-foreground))",
+        destructive: "hsl(var(--destructive-foreground))",
+      },
+      borderColor: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
       },
     },
   },
   plugins: [
     tailwindcssAnimate,
-    addVariablesForColors,
+    addCSSVarsForColors,
     plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
           "bg-grid": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
           }),
           "bg-grid-small": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
             )}")`,
+            backgroundSize: "8px 8px",
           }),
           "bg-dot": (value: string) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none"><circle fill="${value}" cx="10" cy="10" r="1.6"/></svg>`
             )}")`,
           }),
         },
@@ -190,15 +195,18 @@ const config: Config = {
   ],
 };
 
-function addVariablesForColors({ addBase, theme }: PluginAPI) {
-  const allColors = flattenColorPalette(theme("colors"));
-  const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
-
 export default config;
+
+// Plugin to expose theme colors as CSS variables
+function addCSSVarsForColors({ addBase, theme }: PluginAPI) {
+  const colors = flattenColorPalette(theme("colors"));
+  const cssVars = Object.fromEntries(
+    Object.entries(colors)
+      .map(([key, value]) => {
+        if (typeof value === "object") return [null, null];
+        return [`--${key}`, value];
+      })
+      .filter(Boolean)
+  );
+  addBase({ ":root": cssVars });
+}

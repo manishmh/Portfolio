@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-// import { BackgroundGradientAnimation } from "./GradientBg";
+import { BackgroundGradientAnimation } from "./GradientBg";
 // import { GlobeDemo } from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import Image from "next/image";
@@ -121,9 +121,9 @@ export const BentoGridItem = ({
           </div>
         )}
         {id === 6 && (
-          // <BackgroundGradientAnimation>
+          <BackgroundGradientAnimation>
           <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
-          // </BackgroundGradientAnimation>
+          </BackgroundGradientAnimation>
         )}
 
         <div

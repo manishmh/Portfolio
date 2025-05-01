@@ -7,7 +7,10 @@ import animationData from "@/data/confetti.json";
 import Image from "next/image";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+const Lottie = dynamic(() => import("react-lottie"), {
+  ssr: false,
+});
 import MagicButton from "./MagicButton";
 
 export const BentoGrid = ({

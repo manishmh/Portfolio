@@ -1,3 +1,5 @@
+'use client'
+
 import { gridItems } from "@/data";
 import React from "react";
 import { BentoGridItem, BentoGrid } from "./ui/BentoGrid";

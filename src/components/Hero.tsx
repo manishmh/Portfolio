@@ -44,7 +44,7 @@ const Hero = () => {
               Hi, I&apos;m Manish, a Next.js Developer based in India
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
-              <a href="">
+              <a href="https://drive.google.com/file/d/1MYZJf4EsapEGZyvG7Nr8raHmZITkGpkc/view?usp=sharing" target="_blank">
                 <MagicButton
                   title="Resume"
                   icon={<FaLocationArrow />}

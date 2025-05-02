@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/MagicButton";
@@ -19,9 +20,19 @@ const Hero = () => {
         <Spotlight className="top-28 left-10 h-[80vh] w-[50vw]" fill="blue" />
       </div>
       <div>
-        <div className="h-screen w-full dark:bg-black-100 dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
-          {/* Radial gradient for the container to give a faded look */}
+        {/* <div className="h-screen w-full dark:bg-black-100 dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
           <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        </div> */}
+        <div className="h-screen overflow-hidden w-full dark:bg-[#000319] dark:bg-grid-white/[0.03] bg-grid-black/[0.2] flex items-center justify-center absolute top-0 left-0">
+          <div
+            className={cn(
+              "absolute inset-0 scale-200",
+              "[background-size:40px_40px]",
+              "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+              "dark:[background-image:linear-gradient(to_right,#26262686_1px,transparent_1px),linear-gradient(to_bottom,#26262686_1px,transparent_1px)]"
+            )}
+          />
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-[#000319]"></div>
         </div>
         <div className="flex justify-center relative my-20 z-10">
           <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
@@ -35,13 +46,23 @@ const Hero = () => {
             <p className="text-center md:tracking-wider mb-4 text-sm lg:text-2xl ">
               Hi, I&apos;m Manish, a Next.js Developer based in India
             </p>
-            <a href="#projects">
-              <MagicButton
-                title="Show my work"
-                icon={<FaLocationArrow />}
-                position="right"
-              />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+              <a href="">
+                <MagicButton
+                  title="Resume"
+                  icon={<FaLocationArrow />}
+                  position="right"
+                  otherClasses="bg-[#000319]"
+                />
+              </a>
+              <a href="#projects">
+                <MagicButton
+                  title="Show my work"
+                  icon={<FaLocationArrow />}
+                  position="right"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>

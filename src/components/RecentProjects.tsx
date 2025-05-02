@@ -24,7 +24,7 @@ const RecentProjects = () => {
     <div className="py-20 pt-32" id="projects">
       <h1 className="heading">
         A small selection of{" "}
-        <span className="text-purple">recent projects</span>
+        <span className="text-[#cbacf9]">recent projects</span>
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
@@ -50,15 +50,15 @@ const RecentProjects = () => {
                   {iconLists.map((icon, index) => (
                     <div
                       key={icon}
-                      className="border border-white[0.2] rounded-full bg-black lg:w-10 lg:h-10 sm:w-8 sm:h-8 flex justify-center items-center"
+                      className="border border-[#281f22] rounded-full bg-black lg:w-10 lg:h-10 sm:w-8 sm:h-8 flex justify-center items-center"
                       style={{ transform: `translateX(-${5 * index * 2}px)` }}
                     >
-                      <Image src={icon} alt={icon} width={32} height={32} className="p-2" />
+                      <Image src={icon} alt={icon} width={35} height={35} className="p-2" />
                     </div>
                   ))}
                 </div>
                 <div className="flex items-center justify-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                  <p className="flex lg:text-xl md:text-xs text-sm text-[#cbacf9]">
                     Check Live Site
                   </p>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />

@@ -70,7 +70,25 @@ export const gridItems = [
 
 export const projects = [
   {
-    id: 1,
+    id: 152532523,
+    title: "CloudGate - secure identity management (SSO)",
+    des: "Enterprise-grade Single Sign-On (SSO) portal that centralized user authentication for over 370 SaaS applications. Leveraging Keycloak and advanced security protocols.",
+    img: "/projects/cloudgate.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/projects/keycloak.svg", "/projects/gin.webp", "/projects/go.png"],
+    link: "https://cloudgate-frontend-258151641965.us-central1.run.app",
+    active: true
+  },
+  {
+    id: 2525245252,
+    title: "Cleaner Roster",
+    des: "comprehensive e-commerce platform for cleaning services, featuring a dynamic dashboard to visualize real-time customer, order, and monthly sales analytics",
+    img: "/projects/cleaner-roster.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/projects/cloudflare.png", "/projects/hono.svg"],
+    link: "https://cleaner-roster.vercel.app/",
+    active: false
+  },
+  {
+    id: 3245425252,
     title: "Insight Flow - Data visualization app",
     des: "A web platform that allows users to connect databases, visualize data through interactive graphs and insights. Features include OAuth login, workspace creation, and real-time data management",
     img: "/insightflow.png",
@@ -78,31 +96,6 @@ export const projects = [
     link: "https://insight-flow-mh.vercel.app",
     active: true
   },
-  {
-    id: 2,
-    title: "Crypto Tracker",
-    des: "Developed a web app using the CoinGecko API. The app features interactive charts and customizable settings.",
-    img: "/koinx.png",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg",],
-    link: "https://koinx-umber.vercel.app/",
-    active: false 
-  },
-  // {
-  //   id: 3,
-  //   title: "Stock Trading App",
-  //   des: "A stock trading app built with Next.js, TypeScript, Python,and Flask. It allows users to buy and sell stocks.",
-  //   img: "/robinhood.png",
-  //   iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/python-5.svg", "/c.svg"],
-  //   link: "https://github.com/girithodu/stock-trading",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Personal Blog",
-  //   des: "A personal blog built with Next.js, Tailwind CSS, and Sanity. It allows admins to create, read, and delete blog posts.",
-  //   img: "/blog-modified.png",
-  //   iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/sanity.svg", "/c.svg"],
-  //   link: "https://gt-sanity-blog.vercel.app",
-  // }
 ];
 
 

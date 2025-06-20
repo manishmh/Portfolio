@@ -1,6 +1,7 @@
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
+  { name: "Resume", link: "/resume" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -165,7 +166,7 @@ export const workExperience = [
   {
     id: 2,
     title: "Web Developer",
-    desc: "Engineered a user-friendly registration process on the MLSA website that incorporated real-time feedback mechanisms. Speaker at MLSA KIIT’s HacktoberfestxMLSA event, mentoring 250+ students on Git, open-source contributions, and community building in tech",
+    desc: "Engineered a user-friendly registration process on the MLSA website that incorporated real-time feedback mechanisms. Speaker at MLSA KIIT's HacktoberfestxMLSA event, mentoring 250+ students on Git, open-source contributions, and community building in tech",
     className: "md:col-span-2", 
     thumbnail: "/exp2.svg",
   },

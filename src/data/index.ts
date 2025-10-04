@@ -76,7 +76,7 @@ export const projects = [
     des: "Enterprise-grade Single Sign-On (SSO) portal that centralized user authentication for over 370 SaaS applications. Leveraging Keycloak and advanced security protocols.",
     img: "/projects/cloudgate.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/projects/keycloak.svg", "/projects/gin.webp", "/projects/go.png"],
-    link: "https://cloudgate-frontend-258151641965.us-central1.run.app",
+    link: "https://cloudgate.vercel.app",
     active: true
   },
   {
@@ -85,7 +85,7 @@ export const projects = [
     des: "comprehensive e-commerce platform for cleaning services, featuring a dynamic dashboard to visualize real-time customer, order, and monthly sales analytics",
     img: "/projects/cleaner-roster.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/projects/cloudflare.png", "/projects/hono.svg"],
-    link: "https://cleaner-roster.vercel.app/",
+    link: "clr-client.vercel.app",
     active: false
   },
   {
